@@ -4,7 +4,7 @@
     {% if notes %}
         {% for note in notes %}
             <p>
-                <a href="../note/{{ note.id }}/">{{ note.title }}  --  {{ note.likes }}</a>
+                <a href="note/{{ note.id }}/">{{ note.title }}  --  {{ note.likes }}</a>
             </p>
         {% endfor %}
     {% else %}

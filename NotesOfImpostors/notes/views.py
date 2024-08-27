@@ -1,13 +1,10 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
+from django.contrib.auth.decorators import login_required
 from .models import Notes
 
 
-def index(request):
-    return HttpResponse('Hello World')
-
-
-def getNotes(request):
+def getnotes(request):
     notes = Notes.objects.all()
     context = {
         "notes": notes,
@@ -16,12 +13,11 @@ def getNotes(request):
     return HttpResponse(template.render(context, request))
 
 
-def getNote(request, k):
+@login_required
+def getnote(request, k):
     template = loader.get_template("note.html")
-
     note = Notes.objects.get(pk=k)
     context = {
-        "note" : note,
+        "note": note,
     }
-
     return HttpResponse(template.render(context, request))
