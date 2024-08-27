@@ -1,0 +1,13 @@
+{% extends "base.html"%}
+
+{% block main %}
+    {% if notes %}
+        {% for note in notes %}
+            <p>
+                <a href="../note/{{ note.id }}/">{{ note.title }}  --  {{ note.likes }}</a>
+            </p>
+        {% endfor %}
+    {% else %}
+        <p>Notes no found</p>
+    {% endif %}
+{% endblock main %}

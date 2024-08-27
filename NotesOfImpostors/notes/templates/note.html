@@ -1,0 +1,11 @@
+{% extends "base.html"%}
+
+{% block main %}
+    {% if note %}
+        <h2>{{ note }}</h2>
+        <p>{{ note.main }}</p>
+        <p>{{ note.likes }}</p>
+    {% else %}
+        <p>Note no found</p>
+    {% endif %}
+{% endblock main %}
